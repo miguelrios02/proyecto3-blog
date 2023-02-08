@@ -13,7 +13,7 @@ const configs = {
             username: "postgres",
             password: "HOLA.m",
             port: 5432,
-            database: "posts-blog",
+            database: "posts",
             define: {
                 timestamps: true, //? Va a utilizar por defecto el created_at y updated_at
                 underscored: true, //? Convierte camelCase en snake_case todos los nombres y atributos de mis modelos
