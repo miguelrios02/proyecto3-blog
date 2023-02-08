@@ -2,20 +2,18 @@ const postControllers = require("./posts.controllers");
 
 const postNewPost = (req, res) => {
     const postObj = req.body;
-    if (!postObj.content || !postObj.userName) {
-        return res.status(400).json({
-            message: "notNull Violation: posts.content cannot be null",
-        });
-    }
+    // if (!postObj.content || !postObj.userName) {
+    //     return res.status(400).json({
+    //         message: "notNull Violation: posts.content cannot be null",
+    //     });
+    // }
     postControllers
         .createPost(postObj)
         .then((data) => {
             res.status(201).json(data);
         })
         .catch((err) => {
-            res.status(400).json({
-                message: "notNull Violation: posts.content cannot be null",
-            });
+            res.status(400).json(err.message);
         });
 };
 
@@ -66,9 +64,9 @@ const deletePost = (req, res) => {
         .deletePost(id)
         .then((data) => {
             if (data) {
-                res.status(204).json();
+                res.status(204).json(data);
             } else {
-                res.status(404).json({ message: "Product not found" });
+                res.status(404).json(data);
             }
         })
         .catch((err) => {

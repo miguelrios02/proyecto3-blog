@@ -17,22 +17,13 @@ db.authenticate() //? Mostrar en consola de manera informativa si la conexion se
 
 db.sync() //? Sincronizar nuestra base de datos con los modelos que tenemos definidos
     .then(() => {
-        console.log("La base de datos del virus ha sido actualizada");
+        console.log("La base de datos del blogs a sido actualizada ");
     })
     .catch((err) => {
         console.log(err); //! error en las tablas, propiedades, etc
     });
 
 //* como nosotros podemos recibir info o data del cliente
-
-app.get("/", (req, res) => {
-    res.json({
-        message: "Server Ok!",
-        routes: {
-            posts: "http://localhost:9000/api/v1/posts",
-        },
-    });
-});
 
 //? rutas de postos
 app.use("/api/v1", postRouter);
